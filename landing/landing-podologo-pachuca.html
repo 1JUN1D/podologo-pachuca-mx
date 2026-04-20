@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podóloga Pachuca | Clínica Podológica Particular | Podóloga Aurora</title>
+  <meta name="description" content="Podólogo en Pachuca — clínica podológica particular, atención a domicilio, sin trámites. Pachuca Centro, Real del Monte, Mineral de la Reforma. Agenda por WhatsApp hoy. Podóloga Aurora.">
+  <link rel="stylesheet" href="landing.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CBG6960DZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1CBG6960DZ');
+  </script>
+
+  <style>
+    /* Zone pills */
+    .zones-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+    .zone-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--white);
+      border: 1.5px solid var(--teal-mid);
+      color: var(--teal-dark);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: var(--transition);
+    }
+    .zone-pill:hover {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+    }
+    .zone-pill svg { flex-shrink: 0; }
+
+    /* Services list */
+    .services-compact {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media(max-width:600px){ .services-compact { grid-template-columns: 1fr; } }
+
+    .service-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      transition: var(--transition);
+    }
+    .service-pill:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-xs);
+      transform: translateX(4px);
+    }
+    .service-pill__icon {
+      width: 38px;
+      height: 38px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .service-pill__text strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      margin-bottom: 1px;
+    }
+    .service-pill__text span {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* Pricing section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media(max-width: 900px){ .pricing-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width: 560px){ .pricing-grid { grid-template-columns: 1fr; } }
+
+    .price-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .price-card:hover {
+      border-color: var(--teal);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-5px);
+    }
+    .price-card__badge {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+    .price-card__badge--domicilio {
+      background: #FFF0E9;
+      color: var(--accent);
+    }
+    .price-card__icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .price-card__name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-top: 4px;
+    }
+    .price-card__desc {
+      font-size: 0.86rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .price-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .price-card__price {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      color: var(--teal-deep);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .price-card__price small {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-family: var(--font-body);
+      font-weight: 400;
+      display: block;
+      margin-top: 2px;
+    }
+    .price-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #25D366;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .price-card__cta:hover {
+      background: #20b858;
+      transform: scale(1.03);
+    }
+    .pricing-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .pricing-note a {
+      color: var(--teal-dark);
+      font-weight: 600;
+    }
+
+    /* Domicilio highlight */
+    .domicilio-card {
+      background: linear-gradient(135deg, var(--teal-deep), #004a55);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 52px 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .domicilio-card::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,184,212,0.2), transparent 70%);
+    }
+    .domicilio-card h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .domicilio-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+    @media(max-width:760px){
+      .domicilio-card {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+      }
+    }
+  </style>
+
+<link rel="shortcut icon" href="/assets/logo.webp" type="image/x-icon">
+
+
+</head>
+<body>
+
+<!-- Floating Price Flyer -->
+<div id="priceFlyer" class="price-flyer">
+  <div class="price-flyer__inner">
+    <span class="price-flyer__icon">💰</span>
+    <p class="price-flyer__text">Los precios pueden variar dependiendo de la complejidad del caso. Consulta con nosotros para una evaluación personalizada.</p>
+  </div>
+</div>
+<style>
+.price-flyer {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: linear-gradient(135deg, #004a57, #00707e);
+  color: white;
+  padding: 16px 28px;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  max-width: 480px;
+  width: 90%;
+  animation: flyerSlideUp 0.5s ease-out;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.price-flyer.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+}
+.price-flyer__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.price-flyer__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.price-flyer__text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+@keyframes flyerSlideUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+</style>
+<script>
+setTimeout(function() {
+  var flyer = document.getElementById('priceFlyer');
+  if (flyer) flyer.classList.add('hidden');
+  setTimeout(function() { if (flyer) flyer.remove(); }, 600);
+}, 4000);
+</script>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="https://podologopachuca.dondeseria.com/" class="nav__brand">
+        <div class="nav__logo-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          </svg>
+        </div>
+        <div>
+          Podóloga Aurora
+          <span>Podóloga Pachuca · Atención Particular</span>
+        </div>
+      </a>
+      <a href="https://wa.me/527298756439?text=Hola,%20busco%20una%20podóloga%20en%20Pachuca%20para%20agendar%20cita"
+         class="nav__cta"
+         onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        <span>Agendar cita</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero">
+  <div class="hero__left">
+    <div class="urgency-badge">
+      <span class="urgency-dot"></span>
+      Atención particular · Pachuca Centro · Real del Monte · Mineral de la Reforma
+    </div>
+    <p class="hero__eyebrow">Podóloga Pachuca</p>
+    <h1 class="hero__h1">
+      La mejor <em>clínica podológica</em><br>de Pachuca — cerca de ti
+    </h1>
+    <p class="hero__sub">
+      Podóloga titulada que te atiende en consultorio o en tu domicilio. Servicio particular en Pachuca y zonas cercanas: Pachuca Centro, Real del Monte, Mineral de la Reforma y Actopan. Agenda tu cita hoy mismo.
+    </p>
+    <div class="hero__actions">
+      <a href="https://wa.me/527298756439?text=Hola,%20quiero%20agendar%20una%20cita%20con%20podóloga%20en%20Pachuca"
+         class="btn-wa"
+         onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Agendar cita hoy
+      </a>
+      <a href="#servicios" class="btn-outline">
+        Ver servicios
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero__trust">
+      <div class="hero__trust-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+        Podóloga profesional
+      </div>
+      <div class="hero__trust-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+        A domicilio
+      </div>
+      <div class="hero__trust-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+        Misma semana
+      </div>
+    </div>
+    <!-- Zonas -->
+    <div class="zones-grid">
+      <span class="zone-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Pachuca Centro
+      </span>
+      <span class="zone-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Real del Monte
+      </span>
+      <span class="zone-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Actopan
+      </span>
+      <span class="zone-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Mineral de la Reforma
+      </span>
+      <span class="zone-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        A domicilio
+      </span>
+    </div>
+  </div>
+  <div class="hero__right">
+    <div class="hero__video-wrap" id="videoWrap1">
+      <!-- ✏️ REEMPLAZA la ruta del video aquí: cambia /assets/Video1.mp4 por la ruta real de tu video -->
+      <video id="heroVideo1" autoplay muted loop playsinline
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;"
+             oncanplay="document.getElementById('videoOverlay1').style.opacity='0'"
+             onerror="document.getElementById('videoOverlay1').style.opacity='1'">
+        <source src="/assets/Video1.mp4" type="video/mp4">
+      </video>
+      <!-- Poster visible siempre hasta que el video cargue -->
+      <div id="videoOverlay1" style="
+        position:absolute;inset:0;z-index:2;
+        background-image:url('/assets/portada1.webp');
+        background-size:cover;background-position:center;
+        display:flex;align-items:center;justify-content:center;
+        transition:opacity 0.6s ease;
+      ">
+        <div style="
+          width:72px;height:72px;border-radius:50%;
+          background:rgba(0,184,212,0.9);
+          display:flex;align-items:center;justify-content:center;
+          box-shadow:0 8px 32px rgba(0,0,0,0.3);
+          cursor:pointer;transition:transform 0.2s;
+        " onclick="playHeroVideo('heroVideo1','videoOverlay1')"
+           onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-left:4px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-strip__inner">
+      <div class="stat-item">
+        <div class="stat-item__num">3.6K</div>
+        <div class="stat-item__label">Búsquedas mensuales</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">+5</div>
+        <div class="stat-item__label">Zonas de cobertura</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">0</div>
+        <div class="stat-item__label">Trámites </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">1ª</div>
+        <div class="stat-item__label">Consulta orientativa</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SERVICIOS ══════════════════════════ -->
+<section class="section bg-white" id="servicios">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-eyebrow">Podología en Pachuca</span>
+      <h2 class="section-h2">Todo lo que una <em>podóloga en Pachuca</em> puede hacer por ti</h2>
+      <p class="section-lead">Desde el cuidado básico de tus pies hasta tratamientos especializados, te atendemos en consultorio y también vamos hasta tu casa en Pachuca y alrededores.</p>
+    </div>
+    <div class="services-compact">
+      <div class="service-pill">
+        <div class="service-pill__icon">🦶</div>
+        <div class="service-pill__text">
+          <strong>Podología general</strong>
+          <span>Cuidado, corte y limpieza profesional</span>
+        </div>
+      </div>
+      <div class="service-pill">
+        <div class="service-pill__icon">✂️</div>
+        <div class="service-pill__text">
+          <strong>Uñas encarnadas</strong>
+          <span>Tratamiento y cirugía especializada</span>
+        </div>
+      </div>
+      <div class="service-pill">
+        <div class="service-pill__icon">🔬</div>
+        <div class="service-pill__text">
+          <strong>Hongos en uñas</strong>
+          <span>Diagnóstico y tratamiento antifúngico</span>
+        </div>
+      </div>
+      <div class="service-pill">
+        <div class="service-pill__icon">💉</div>
+        <div class="service-pill__text">
+          <strong>Pie diabético</strong>
+          <span>Cuidado especializado y preventivo</span>
+        </div>
+      </div>
+      <div class="service-pill">
+        <div class="service-pill__icon">🩺</div>
+        <div class="service-pill__text">
+          <strong>Callos y durezas</strong>
+          <span>Extracción y tratamiento de fondo</span>
+        </div>
+      </div>
+      <div class="service-pill">
+        <div class="service-pill__icon">🏠</div>
+        <div class="service-pill__text">
+          <strong>Podología a domicilio</strong>
+          <span>En tu casa, por Pachuca y alrededores</span>
+        </div>
+      </div>
+      <div class="service-pill">
+        <div class="service-pill__icon">⚡</div>
+        <div class="service-pill__text">
+          <strong>Verruga plantar</strong>
+          <span>Tratamiento con técnica especializada</span>
+        </div>
+      </div>
+      <div class="service-pill">
+        <div class="service-pill__icon">👶</div>
+        <div class="service-pill__text">
+          <strong>Podología pediátrica</strong>
+          <span>Atención especializada en niños</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ TARIFAS ════════════════════════════ -->
+<section class="section bg-light" id="tarifas">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-eyebrow">Tarifas transparentes</span>
+      <h2 class="section-h2">Nuestros servicios <em>con precio claro</em></h2>
+      <p class="section-lead">Aquí no hay costos escondidos ni letras chiquitas. Sabes exactamente lo que incluye cada servicio antes de agendar.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Onicomicosis (seguimiento) -->
+      <div class="price-card">
+        <span class="price-card__badge">Hongos</span>
+        <div class="price-card__icon">🔬</div>
+        <div class="price-card__name">Onicomicosis<br>(seguimiento)</div>
+        <div class="price-card__desc">Seguimiento profesional de uñas afectadas por hongos. Incluye limado especializado, retiro de zona contaminada y aplicación de tratamiento antimicótico por sesión.</div>
+        <div class="price-card__footer">
+          <div class="price-card__price">$165 MXN<small>por uña</small></div>
+          <a href="https://wa.me/527298756439?text=Hola,%20quiero%20agendar%20tratamiento%20de%20onicomicosis%20en%20Pachuca" class="price-card__cta" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Agendar
+          </a>
+        </div>
+      </div>
+
+      <!-- Onicocriptosis (seguimiento y extracción de espícula) -->
+      <div class="price-card">
+        <span class="price-card__badge">Uña encarnada</span>
+        <div class="price-card__icon">✂️</div>
+        <div class="price-card__name">Uña con onicocriptosis<br>(seguimiento y extracción)</div>
+        <div class="price-card__desc">Seguimiento de la uña encarnada con extracción cuidadosa de la espícula que provoca dolor. Se aplica antiséptico y se protege el dedo para una recuperación adecuada.</div>
+        <div class="price-card__footer">
+          <div class="price-card__price">$200 MXN<small>por uña</small></div>
+          <a href="https://wa.me/527298756439?text=Hola,%20necesito%20tratamiento%20de%20uña%20encarnada%20en%20Pachuca" class="price-card__cta" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Agendar
+          </a>
+        </div>
+      </div>
+
+      <!-- Onicocriptosis (corte y seguimiento) -->
+      <div class="price-card">
+        <span class="price-card__badge">Uña encarnada</span>
+        <div class="price-card__icon">🦶</div>
+        <div class="price-card__name">Onicocriptosis<br>(corte y seguimiento)</div>
+        <div class="price-card__desc">Corte correctivo de la uña encarnada con técnica profesional para aliviar la molestia. Incluye seguimiento para verificar que la uña crezca de forma adecuada.</div>
+        <div class="price-card__footer">
+          <div class="price-card__price">$150 MXN<small>por uña</small></div>
+          <a href="https://wa.me/527298756439?text=Hola,%20necesito%20corte%20de%20uña%20encarnada%20en%20Pachuca" class="price-card__cta" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Agendar
+          </a>
+        </div>
+      </div>
+
+      <!-- Hiperqueratosis (callosidades) -->
+      <div class="price-card">
+        <span class="price-card__badge">En clínica</span>
+        <div class="price-card__icon">🩺</div>
+        <div class="price-card__name">Hiperqueratosis<br>(callosidades)</div>
+        <div class="price-card__desc">Eliminación profesional de callos y durezas en la planta del pie. Se retira la piel engrosada con instrumental especializado para que camines sin molestias.</div>
+        <div class="price-card__footer">
+          <div class="price-card__price">$500 MXN<small>por sesión</small></div>
+          <a href="https://wa.me/527298756439?text=Hola,%20quiero%20tratamiento%20de%20callosidades%20en%20Pachuca" class="price-card__cta" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Agendar
+          </a>
+        </div>
+      </div>
+
+      <!-- Servicio preventivo -->
+      <div class="price-card">
+        <span class="price-card__badge">Preventivo</span>
+        <div class="price-card__icon">💆</div>
+        <div class="price-card__name">Servicio Preventivo</div>
+        <div class="price-card__desc">Revisión completa de tus pies con corte de uñas, limado, hidratación y valoración general. Ideal para mantener la salud podal y prevenir problemas a futuro.</div>
+        <div class="price-card__footer">
+          <div class="price-card__price">$440 MXN<small>por sesión</small></div>
+          <a href="https://wa.me/527298756439?text=Hola,%20quiero%20agendar%20servicio%20preventivo%20en%20Pachuca" class="price-card__cta" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Agendar
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <p class="pricing-note">¿Tu caso es diferente o quieres orientarte antes de agendar? <a href="https://wa.me/527298756439?text=Hola,%20tengo%20una%20consulta%20sobre%20precios%20y%20servicios" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">Manda mensaje, no te cobramos por preguntar →</a></p>
+  </div>
+</section>
+
+<!-- ══════════════════════ DOMICILIO EXTRA ════════════════════ -->
+<section class="section-sm bg-light">
+  <div class="container">
+    <div class="domicilio-card">
+      <div>
+        <h3>¿Buscas podóloga<br>a domicilio en Pachuca?</h3>
+        <p>Te llevamos el consultorio completo hasta tu casa. Damos servicio en Pachuca Centro, Real del Monte, Mineral de la Reforma y Actopan. El mismo nivel de atención y los mismos protocolos de higiene que en clínica.</p>
+        <a href="https://wa.me/527298756439?text=Hola,%20necesito%20una%20podóloga%20a%20domicilio%20en%20Pachuca"
+           class="btn-wa"
+           onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Consultar disponibilidad
+        </a>
+      </div>
+      <div style="text-align:center;font-size:5rem;opacity:0.6;position:relative;z-index:1;">🏠</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════ WHY US ══════════════════════════ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="split split--reverse">
+      <div class="split__visual">
+        <img
+          src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
+          alt="Clínica podológica Pachuca Podóloga Aurora"
+          loading="lazy"
+        >
+      </div>
+      <div>
+        <div class="section-header">
+          <span class="section-eyebrow">Por qué elegir Podóloga Aurora</span>
+          <h2 class="section-h2">Tu salud podal merece atención <em>de verdad</em></h2>
+          <p class="section-lead">No somos el plan B cuando no te dan cita en el seguro. Somos tu primera opción para que tus pies reciban la atención que de verdad necesitan.</p>
+        </div>
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <div class="benefit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p><strong>Podóloga titulada en Pachuca</strong> — profesional certificada con especialización en patologías del pie, nada que ver con una simple pedicura.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p><strong>Consultorio equipado en Pachuca</strong> con instrumental profesional, esterilización garantizada y protocolos de bioseguridad al cien por ciento.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p><strong>Podóloga a domicilio en Pachuca</strong> — vamos hasta tu casa con todo el equipo necesario en Pachuca Centro, Real del Monte, Actopan y Mineral de la Reforma.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p><strong>Sin trámites ni burocracia</strong> — te atendemos el mismo día que agendas, sin papeleos, sin filas y sin esperas innecesarias.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ TESTIMONIOS ════════════════════════ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-eyebrow">Pacientes reales</span>
+      <h2 class="section-h2">Pachucanos que <em>ya confían</em> en Podóloga Aurora</h2>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Busqué una podóloga en Pachuca Centro y di con la Podóloga Aurora. Fue la mejor decisión que pude tomar: puntual, todo muy limpio y me trataron los callos de forma súper profesional.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JV</div>
+          <div>
+            <div class="testimonial-author-name">Jorge V.</div>
+            <div class="testimonial-author-meta">Pachuca Centro · Podología general</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Pedí el servicio a domicilio porque me costaba mucho moverme. La podóloga llegó a la hora acordada con todo su equipo esterilizado. Una comodidad increíble y una atención de primera.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MH</div>
+          <div>
+            <div class="testimonial-author-name">Martha H.</div>
+            <div class="testimonial-author-meta">Real del Monte · Podología a domicilio</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Tenía ya un buen rato batallando con hongos en las uñas. En solo dos consultas en su clínica cerca de Mineral de la Reforma me dieron un diagnóstico claro y un plan de tratamiento que sí funcionó. Ya no tengo ese problema.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RP</div>
+          <div>
+            <div class="testimonial-author-name">Ricardo P.</div>
+            <div class="testimonial-author-meta">Actopan · Tratamiento hongos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-eyebrow">Dudas frecuentes</span>
+      <h2 class="section-h2">Lo que más nos <em>preguntan</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Atienden en Pachuca Centro, Real del Monte y otras zonas de Pachuca?
+          <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Claro que sí. Te podemos atender tanto en consultorio como en tu domicilio. Cubrimos Pachuca Centro, Real del Monte, Mineral de la Reforma, Actopan y zonas aledañas. Escríbenos por WhatsApp para confirmar si llegamos a tu zona.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Cuánto cuesta la consulta con la podóloga?
+          <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">El costo depende del servicio que necesites. Mándanos un mensaje por WhatsApp y te decimos el precio según tu situación. La orientación previa no tiene costo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Necesito remisión médica para ser atendido?
+          <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Para nada. Como somos atención particular, puedes agendar directamente sin remisiones, sin autorizaciones y sin ningún trámite del seguro social.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Atienden pacientes diabéticos?
+          <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Por supuesto. Tenemos un protocolo especial para pacientes con diabetes. El pie diabético necesita un cuidado especializado y preventivo, y contamos con la preparación y el equipo adecuados para ello.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Cuánto tiempo dura una consulta de podología?
+          <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Por lo general, una consulta dura entre 30 y 60 minutos, según el tratamiento que necesites. Si es algo más complejo, puede tomar un poco más de tiempo; te lo decimos al momento de agendar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA BAND ══════════════════════════ -->
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__h2">La mejor <em style="font-style:italic;color:var(--teal);">podóloga en Pachuca</em><br>está a un mensaje de distancia</h2>
+    <p class="cta-band__sub">Sin filas, sin complicaciones y sin esperas eternas. Hay citas disponibles esta semana en Pachuca Centro, Real del Monte, Mineral de la Reforma y Actopan.</p>
+    <div class="cta-band__actions">
+      <a href="https://wa.me/527298756439?text=Hola,%20quiero%20agendar%20cita%20con%20podóloga%20en%20Pachuca"
+         class="btn-wa"
+         onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Hablar con una podóloga ahora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ MAPA ══════════════════════════════ -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:40px;">
+      <span class="section-eyebrow">Encuéntranos</span>
+      <h2 class="section-h2">Podóloga Aurora en <em>Pachuca</em></h2>
+    </div>
+    <div class="map-grid">
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51606.405385634884!2d-74.17530552301163!3d4.6524825323109855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9fa0fa4bb383%3A0xaa3cd388f082d204!2sPodologia%20Pachuca%20%7C%20Pie%20Pro%20Salud!5e0!3m2!1ses-419!2sco!4v1772490286417!5m2!1ses-419!2sco" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="map-info">
+        <h3>Clínica Podológica<br><em style="font-style:italic;color:var(--teal-dark);">Podóloga Aurora</em></h3>
+        <div class="map-detail">
+          <div class="map-detail__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="map-detail__text">
+            <p>Ubicación</p>
+            <strong>Pachuca, México<br>Atención en clínica y a domicilio</strong>
+          </div>
+        </div>
+        <div class="map-detail">
+          <div class="map-detail__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="map-detail__text">
+            <p>Disponibilidad</p>
+            <strong>Lunes a Sábado<br>Consulta horarios por WhatsApp</strong>
+          </div>
+        </div>
+        <div class="map-detail">
+          <div class="map-detail__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          </div>
+          <div class="map-detail__text">
+            <p>Agenda ahora</p>
+            <strong><a href="https://wa.me/527298756439" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})" style="color:var(--teal-dark);">+52 729 875 6439</a></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════ FOOTER ══════════════════════════ -->
+<footer class="footer-lp">
+  <div class="container">
+    <div class="footer-lp__inner">
+      <div class="footer-lp__brand">
+        Podóloga Aurora
+        <span>Podología Particular · Pachuca México</span>
+      </div>
+      <div class="footer-lp__links">
+        <a href="https://podologopachuca.dondeseria.com/">Sitio principal</a>
+        <a href="landing-uneros-pachuca.html">Uñas Encarnadas</a>
+        <a href="https://wa.me/527298756439" onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-lp__bottom">
+      <p>© 2025 Podóloga Aurora. Clínica Podológica Pachuca. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════ WHATSAPP FLOTANTE ════════════════════ -->
+<a href="https://wa.me/527298756439?text=Hola,%20busco%20podóloga%20en%20Pachuca"
+   class="wa-float"
+   title="Hablar con una podóloga"
+   onclick="gtag('event','conversion',{'send_to':'AW-17597907952/Bf0wCI_q4oEcEPCHq8dB'})">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.525 5.857L.057 23.858l6.168-1.45A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.93 0-3.742-.502-5.313-1.38l-.38-.22-3.662.862.878-3.572-.248-.394A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+  function playHeroVideo(videoId, overlayId) {
+    var v = document.getElementById(videoId);
+    var o = document.getElementById(overlayId);
+    if (v) {
+      v.play().then(function(){ o.style.opacity = '0'; setTimeout(function(){ o.style.pointerEvents='none'; }, 600); })
+       .catch(function(){ o.style.opacity = '1'; });
+    }
+  }
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
