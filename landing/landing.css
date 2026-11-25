@@ -942,3 +942,6 @@ ul { list-style:none; }
   .nav__cta span { display: none; }
   .stats-strip__inner { grid-template-columns: 1fr 1fr; }
 }
+
+/* Precio a consultar */
+.price-card .price-card__price--consultar { font-size: 1.1rem; white-space: nowrap; line-height: 1.2; }
